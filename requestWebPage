@@ -1,0 +1,9 @@
+import requests
+from pyquery import PyQuery as pq
+
+
+response = requests.get('http://www.metrodeal.com/deals/Metro_Manila/House-of-Wagyu-Stone-Grill/055320966')
+# soup = bs4.BeautifulSoup(response.text)
+price = pq(response.text).find('.deal-price')
+
+print(price.text())
